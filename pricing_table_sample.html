@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料金プラン比較表</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .plan-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .plan-card.featured {
+            border: 3px solid #007AFF;
+            position: relative;
+        }
+        .plan-card.featured::before {
+            content: "人気";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007AFF;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .plan-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .plan-price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007AFF;
+            margin-bottom: 20px;
+        }
+        .plan-price span {
+            font-size: 16px;
+            color: #666;
+        }
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+        .plan-button {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .plan-button:hover {
+            background: #0051D5;
+        }
+        .feature-table {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .feature-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .feature-table th {
+            background: #f8f8f8;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+        .feature-table th:first-child {
+            width: 40%;
+        }
+        .feature-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .feature-table td:not(:first-child) {
+            text-align: center;
+        }
+        .check {
+            color: #007AFF;
+            font-size: 20px;
+        }
+        .cross {
+            color: #ccc;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pricing-container">
+        <h1>料金プラン</h1>
+        
+        <div class="pricing-table">
+            <div class="plan-card">
+                <div class="plan-name">Standard</div>
+                <div class="plan-price">¥6,980<span>/月</span></div>
+                <ul class="plan-features">
+                    <li>エコオクお気に入りメモ一覧表示ツール</li>
+                    <li>エコオク相場表マイナス検索ツール</li>
+                    <li>AUCNET推定落札価格表示ツール</li>
+                    <li>AUCNET相場表フィルタリングツール</li>
+                    <li>AUCNET相場票マイナス検索ツール</li>
+                </ul>
+                <button class="plan-button">プランを選択</button>
+            </div>
+            
+            <div class="plan-card featured">
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">¥8,980<span>/月</span></div>
+                <ul class="plan-features">
+                    <li>Standardプランの全ツール</li>
+                    <li>＋</li>
+                    <li>エコオク自社出品お気に入り登録ツール</li>
+                    <li>AUCNET成約率一括取得ツール</li>
+                </ul>
+                <button class="plan-button">プランを選択</button>
+            </div>
+            
+            <div class="plan-card">
+                <div class="plan-name">MAX</div>
+                <div class="plan-price">¥10,980<span>/月</span></div>
+                <ul class="plan-features">
+                    <li>上記すべてのツール</li>
+                    <li>＋</li>
+                    <li>今後サブスクで追加されるツールも</li>
+                    <li>料金据え置きで使用可能</li>
+                    <li style="color: #007AFF; font-weight: bold;">（Maxプランの特典）</li>
+                </ul>
+                <button class="plan-button">プランを選択</button>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; margin: 40px 0;">各プランで利用可能なツール</h2>
+        
+        <div class="feature-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ツール名</th>
+                        <th>Standard</th>
+                        <th>Pro</th>
+                        <th>MAX</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>エコオクお気に入りメモ一覧表示ツール</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>エコオク相場表マイナス検索ツール</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>AUCNET推定落札価格表示ツール</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>AUCNET相場表フィルタリングツール</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>AUCNET相場票マイナス検索ツール</td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>エコオク自社出品お気に入り登録ツール</td>
+                        <td><span class="cross">−</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>AUCNET成約率一括取得ツール</td>
+                        <td><span class="cross">−</span></td>
+                        <td><span class="check">✓</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>今後追加される新ツール</td>
+                        <td><span class="cross">−</span></td>
+                        <td><span class="cross">−</span></td>
+                        <td><span class="check">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
